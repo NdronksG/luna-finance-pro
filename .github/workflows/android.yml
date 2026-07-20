@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_dispatch: # Memungkinkan Boss Her menjalankan build secara manual
+  workflow_dispatch:
 
 jobs:
   build:
@@ -24,8 +24,13 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0' # Versi stabil terbaru
+          flutter-version: '3.22.0'
           channel: 'stable'
+
+      - name: Initialize Flutter Project
+        # This command creates the correct project structure (Android/iOS/Web) 
+        # based on the current Flutter SDK version, fixing the "unsupported Gradle" error.
+        run: flutter create --platforms=android .
 
       - name: Install dependencies
         run: flutter pub get
