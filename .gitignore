@@ -1,0 +1,18 @@
+# Miscellaneous
+*.apk
+*.exe
+*.dll
+*.so
+.gradle/
+build/
+.dart_tool/
+.packages
+package-lock.json
+pubspec.lock
+
+# Android specific
+.idea/
+*.iml
+android/local.properties
+android/app/build/
+android/.gradle/
